@@ -2,6 +2,7 @@ To install NeoVim run the command ```curl -LO https://github.com/neovim/neovim/r
 chmod u+x nvim-linux-x86_64.appimage
 
 ````
+
 Then you want to run ``` sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 ````
 
