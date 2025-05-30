@@ -1,4 +1,3 @@
--- Set leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -7,6 +6,9 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- For conciseness
 local opts = { noremap = true, silent = true }
+
+-- End of line in Insert mode (Ctrl+; = ASCII 59)
+vim.keymap.set('i', '<Char-59>', '<C-o>$', { noremap = true, silent = true })
 
 -- save file
 vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
@@ -17,8 +19,19 @@ vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts)
 -- quit file
 vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
 
+vim.keymap.set('n', '<C-w>', function()
+  if #vim.fn.getbufinfo { buflisted = 1 } > 1 then
+    vim.cmd 'bp | bd #' -- Switch to previous buffer, then delete current
+  else
+    vim.cmd 'q' -- Quit if last buffer
+  end
+end, opts)
+
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
+
+-- Yank to system clipboard with Ctrl+c
+vim.keymap.set({ 'n', 'v' }, '<C-c>', '"+y', opts)
 
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
