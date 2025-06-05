@@ -5,6 +5,15 @@ return {
     'christoomey/vim-tmux-navigator',
   },
   {
+    "tronikelis/ts-autotag.nvim",
+    opts = {},
+    -- ft = {}, optionally you can load it only in jsx/html
+    event = "VeryLazy",
+  },
+  {
+    'rafamadriz/friendly-snippets',
+  },
+  {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
   },

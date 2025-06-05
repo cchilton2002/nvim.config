@@ -8,7 +8,7 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 local opts = { noremap = true, silent = true }
 
 -- End of line in Insert mode (Ctrl+; = ASCII 59)
-vim.keymap.set('i', '<Char-59>', '<C-o>$', { noremap = true, silent = true })
+-- vim.keymap.set('i', '<Char-59>', '<C-o>$', { noremap = true, silent = true })
 
 -- save file
 vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
